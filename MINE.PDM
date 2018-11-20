@@ -1,0 +1,438 @@
+[Root]
+Most Recent Package=new Package 2
+Most Recent Deploy=Folder Deployment 1
+
+
+[Package|Standard Setup Package 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=E:\
+
+[Package|Standard Setup Package 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Standard Setup Package 1|Files Found]
+
+[Package|Standard Setup Package 1|Files Released]
+VBAR2232.dll=
+VBDB32.dll=
+
+[Package|Standard Setup Package 1|Missing Dependency Information]
+C:\Program Files (x86)\Common Files\System\ado\msado20.tlb=
+C:\Windows\SysWOW64\MSSTDFMT.DLL=
+
+[Package|Standard Setup Package 1|Out-of-Date Dependency Information]
+C:\Windows\SysWOW64\MSCAL.OCX=
+
+[Package|Standard Setup Package 1|Files Added]
+
+[Package|Standard Setup Package 1|Files Removed]
+
+[Package|Standard Setup Package 1|Files In Project]
+E:\MIN PROJECT\MINE.exe=Yes
+C:\Windows\System32\msvbvm60.dll=Yes
+C:\Windows\System32\oleaut32.dll=Yes
+C:\Windows\System32\olepro32.dll=Yes
+C:\Windows\System32\asycfilt.dll=Yes
+C:\Windows\System32\stdole2.tlb=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Windows\SysWOW64\MSADODC.OCX=Yes
+C:\Windows\SysWOW64\MSSTDFMT.DLL=Yes
+C:\Program Files (x86)\Common Files\System\ado\msado20.tlb=Yes
+C:\Windows\SysWOW64\MSBIND.DLL=Yes
+C:\Windows\SysWOW64\MSCAL.OCX=Yes
+C:\Windows\SysWOW64\MSFLXGRD.OCX=Yes
+C:\Windows\SysWOW64\MSDATGRD.OCX=Yes
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO2532.TLB=Yes
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO3032.DLL=Yes
+C:\Windows\System32\MSJT3032.DLL=Yes
+C:\Windows\System32\VEN2232.OLB=Yes
+C:\Windows\System32\MSJTER32.DLL=Yes
+C:\Windows\System32\MSJINT32.DLL=Yes
+C:\Windows\System32\vbajet32.dll=Yes
+C:\Windows\System32\expsrv.dll=Yes
+C:\Windows\System32\MSRD2X32.DLL=Yes
+C:\Windows\System32\MSWNG300.DLL=Yes
+C:\Windows\System32\odbcjt32.dll=Yes
+C:\Windows\System32\odbcji32.dll=Yes
+C:\Windows\System32\ODBCTL32.DLL=Yes
+C:\Program Files (x86)\Common Files\DESIGNER\MSDERUN.DLL=Yes
+C:\Windows\SysWOW64\MSDBRPTR.DLL=Yes
+C:\Windows\SysWOW64\COMCT232.OCX=Yes
+C:\Windows\SysWOW64\COMCTL32.OCX=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\Windows\System32\VB6STKIT.DLL=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Standard Setup Package 1|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 1|Install Locations]
+E:\MIN PROJECT\MINE.exe=$(AppPath)
+C:\Windows\System32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\Windows\System32\oleaut32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\olepro32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\asycfilt.dll=$(WinSysPathSysFile)
+C:\Windows\System32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Windows\SysWOW64\MSADODC.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\MSSTDFMT.DLL=$(WinSysPath)
+C:\Program Files (x86)\Common Files\System\ado\msado20.tlb=$(WinSysPath)
+C:\Windows\SysWOW64\MSBIND.DLL=$(WinSysPath)
+C:\Windows\SysWOW64\MSCAL.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\MSFLXGRD.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\MSDATGRD.OCX=$(WinSysPath)
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO2532.TLB=$(MSDAOPath)
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO3032.DLL=$(MSDAOPath)
+C:\Windows\System32\MSJT3032.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\VEN2232.OLB=$(WinSysPathSysFile)
+C:\Windows\System32\MSJTER32.DLL=$(WinSysPath)
+C:\Windows\System32\MSJINT32.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\vbajet32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\expsrv.dll=$(WinSysPathSysFile)
+C:\Windows\System32\MSRD2X32.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\MSWNG300.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\odbcjt32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\odbcji32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\ODBCTL32.DLL=$(WinSysPathSysFile)
+C:\Program Files (x86)\Common Files\DESIGNER\MSDERUN.DLL=$(CommonFiles)\designer
+C:\Windows\SysWOW64\MSDBRPTR.DLL=$(WinSysPath)
+C:\Windows\SysWOW64\COMCT232.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\COMCTL32.OCX=$(WinSysPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\Windows\System32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|Standard Setup Package 1|Configure Shared Files]
+Applicable=Yes
+E:\MIN PROJECT\MINE.exe=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+
+[Package|Standard Setup Package 1|Distribution]
+Type=single
+Size=
+Title=ACAS
+
+[Package|Standard Setup Package 1|IconGroups]
+Group0=ACAS
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 1|ACAS]
+Icon1=MINE.exe
+Title1=ACAS
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Package]
+PackageFolder=E:\
+ProjectFolder=E:\MIN PROJECT
+ServerSideCab=
+File1=E:\setup.exe
+File2=E:\Setup.Lst
+File3=E:\MINE.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+
+[Package|Standard Setup Package 2|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=E:\new mine
+
+[Package|Standard Setup Package 2|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Standard Setup Package 2|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Standard Setup Package 2|Files Found]
+
+[Package|Standard Setup Package 2|Files Released]
+VBAR2232.dll=
+VBDB32.dll=
+
+[Package|Standard Setup Package 2|Missing Dependency Information]
+C:\Program Files (x86)\Common Files\System\ado\msado20.tlb=
+C:\Windows\SysWOW64\MSSTDFMT.DLL=
+
+[Package|Standard Setup Package 2|Out-of-Date Dependency Information]
+C:\Windows\SysWOW64\MSCAL.OCX=
+
+[Package|Standard Setup Package 2|Files Added]
+
+[Package|Standard Setup Package 2|Files Removed]
+
+[Package|Standard Setup Package 2|Files In Project]
+E:\MIN PROJECT\MINE.exe=Yes
+C:\Windows\System32\msvbvm60.dll=Yes
+C:\Windows\System32\oleaut32.dll=Yes
+C:\Windows\System32\olepro32.dll=Yes
+C:\Windows\System32\asycfilt.dll=Yes
+C:\Windows\System32\stdole2.tlb=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Windows\SysWOW64\MSADODC.OCX=Yes
+C:\Windows\SysWOW64\MSSTDFMT.DLL=Yes
+C:\Program Files (x86)\Common Files\System\ado\msado20.tlb=Yes
+C:\Windows\SysWOW64\MSBIND.DLL=Yes
+C:\Windows\SysWOW64\MSCAL.OCX=Yes
+C:\Windows\SysWOW64\MSFLXGRD.OCX=Yes
+C:\Windows\SysWOW64\MSDATGRD.OCX=Yes
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO2532.TLB=Yes
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO3032.DLL=Yes
+C:\Windows\System32\MSJT3032.DLL=Yes
+C:\Windows\System32\VEN2232.OLB=Yes
+C:\Windows\System32\MSJTER32.DLL=Yes
+C:\Windows\System32\MSJINT32.DLL=Yes
+C:\Windows\System32\vbajet32.dll=Yes
+C:\Windows\System32\expsrv.dll=Yes
+C:\Windows\System32\MSRD2X32.DLL=Yes
+C:\Windows\System32\MSWNG300.DLL=Yes
+C:\Windows\System32\odbcjt32.dll=Yes
+C:\Windows\System32\odbcji32.dll=Yes
+C:\Windows\System32\ODBCTL32.DLL=Yes
+C:\Program Files (x86)\Common Files\DESIGNER\MSDERUN.DLL=Yes
+C:\Windows\SysWOW64\MSDBRPTR.DLL=Yes
+C:\Windows\SysWOW64\COMCT232.OCX=Yes
+C:\Windows\SysWOW64\COMCTL32.OCX=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\Windows\System32\VB6STKIT.DLL=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Standard Setup Package 2|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 2|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 2|Install Locations]
+E:\MIN PROJECT\MINE.exe=$(AppPath)
+C:\Windows\System32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\Windows\System32\oleaut32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\olepro32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\asycfilt.dll=$(WinSysPathSysFile)
+C:\Windows\System32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Windows\SysWOW64\MSADODC.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\MSSTDFMT.DLL=$(WinSysPath)
+C:\Program Files (x86)\Common Files\System\ado\msado20.tlb=$(WinSysPath)
+C:\Windows\SysWOW64\MSBIND.DLL=$(WinSysPath)
+C:\Windows\SysWOW64\MSCAL.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\MSFLXGRD.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\MSDATGRD.OCX=$(WinSysPath)
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO2532.TLB=$(MSDAOPath)
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO3032.DLL=$(MSDAOPath)
+C:\Windows\System32\MSJT3032.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\VEN2232.OLB=$(WinSysPathSysFile)
+C:\Windows\System32\MSJTER32.DLL=$(WinSysPath)
+C:\Windows\System32\MSJINT32.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\vbajet32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\expsrv.dll=$(WinSysPathSysFile)
+C:\Windows\System32\MSRD2X32.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\MSWNG300.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\odbcjt32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\odbcji32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\ODBCTL32.DLL=$(WinSysPathSysFile)
+C:\Program Files (x86)\Common Files\DESIGNER\MSDERUN.DLL=$(CommonFiles)\designer
+C:\Windows\SysWOW64\MSDBRPTR.DLL=$(WinSysPath)
+C:\Windows\SysWOW64\COMCT232.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\COMCTL32.OCX=$(WinSysPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\Windows\System32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|Standard Setup Package 2|Configure Shared Files]
+Applicable=Yes
+E:\MIN PROJECT\MINE.exe=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+
+[Package|Standard Setup Package 2|Distribution]
+Type=single
+Size=1.44 MB
+Title=accounts
+
+[Package|Standard Setup Package 2|IconGroups]
+Group0=ACAS
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 2|ACAS]
+Icon1=MINE.exe
+Title1=ACAS
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 2|Package]
+PackageFolder=E:\new mine
+ProjectFolder=E:\MIN PROJECT
+ServerSideCab=
+File1=E:\new mine\setup.exe
+File2=E:\new mine\Setup.Lst
+File3=E:\new mine\MINE.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Deploy|Folder Deployment 1|Root]
+Package=Standard Setup Package 1
+Handler=PDWizard.FolderDplySubWiz
+Folder=d:\
+
+
+[Package|new Package 2|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=d:\
+
+[Package|new Package 2|Configure DAO ISAMs]
+Applicable=No
+
+[Package|new Package 2|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|new Package 2|Files Found]
+
+[Package|new Package 2|Files Released]
+VBAR2232.dll=
+VBDB32.dll=
+
+[Package|new Package 2|Missing Dependency Information]
+C:\Program Files (x86)\Common Files\System\ado\msado20.tlb=
+C:\Windows\SysWOW64\MSSTDFMT.DLL=
+
+[Package|new Package 2|Out-of-Date Dependency Information]
+C:\Windows\SysWOW64\MSCAL.OCX=
+
+[Package|new Package 2|Files Added]
+
+[Package|new Package 2|Files Removed]
+
+[Package|new Package 2|Files In Project]
+E:\MIN PROJECT\MINE.exe=Yes
+C:\Windows\System32\msvbvm60.dll=Yes
+C:\Windows\System32\oleaut32.dll=Yes
+C:\Windows\System32\olepro32.dll=Yes
+C:\Windows\System32\asycfilt.dll=Yes
+C:\Windows\System32\stdole2.tlb=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Windows\SysWOW64\MSADODC.OCX=Yes
+C:\Windows\SysWOW64\MSSTDFMT.DLL=Yes
+C:\Program Files (x86)\Common Files\System\ado\msado20.tlb=Yes
+C:\Windows\SysWOW64\MSBIND.DLL=Yes
+C:\Windows\SysWOW64\MSCAL.OCX=Yes
+C:\Windows\SysWOW64\MSFLXGRD.OCX=Yes
+C:\Windows\SysWOW64\MSDATGRD.OCX=Yes
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO2532.TLB=Yes
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO3032.DLL=Yes
+C:\Windows\System32\MSJT3032.DLL=Yes
+C:\Windows\System32\VEN2232.OLB=Yes
+C:\Windows\System32\MSJTER32.DLL=Yes
+C:\Windows\System32\MSJINT32.DLL=Yes
+C:\Windows\System32\vbajet32.dll=Yes
+C:\Windows\System32\expsrv.dll=Yes
+C:\Windows\System32\MSRD2X32.DLL=Yes
+C:\Windows\System32\MSWNG300.DLL=Yes
+C:\Windows\System32\odbcjt32.dll=Yes
+C:\Windows\System32\odbcji32.dll=Yes
+C:\Windows\System32\ODBCTL32.DLL=Yes
+C:\Program Files (x86)\Common Files\DESIGNER\MSDERUN.DLL=Yes
+C:\Windows\SysWOW64\MSDBRPTR.DLL=Yes
+C:\Windows\SysWOW64\COMCT232.OCX=Yes
+C:\Windows\SysWOW64\COMCTL32.OCX=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\Windows\System32\VB6STKIT.DLL=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|new Package 2|Configure Registry Files]
+Applicable=No
+
+[Package|new Package 2|Configure Remote Servers]
+Applicable=No
+
+[Package|new Package 2|Install Locations]
+E:\MIN PROJECT\MINE.exe=$(AppPath)
+C:\Windows\System32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\Windows\System32\oleaut32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\olepro32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\asycfilt.dll=$(WinSysPathSysFile)
+C:\Windows\System32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Windows\SysWOW64\MSADODC.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\MSSTDFMT.DLL=$(WinSysPath)
+C:\Program Files (x86)\Common Files\System\ado\msado20.tlb=$(WinSysPath)
+C:\Windows\SysWOW64\MSBIND.DLL=$(WinSysPath)
+C:\Windows\SysWOW64\MSCAL.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\MSFLXGRD.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\MSDATGRD.OCX=$(WinSysPath)
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO2532.TLB=$(MSDAOPath)
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO3032.DLL=$(MSDAOPath)
+C:\Windows\System32\MSJT3032.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\VEN2232.OLB=$(WinSysPathSysFile)
+C:\Windows\System32\MSJTER32.DLL=$(WinSysPath)
+C:\Windows\System32\MSJINT32.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\vbajet32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\expsrv.dll=$(WinSysPathSysFile)
+C:\Windows\System32\MSRD2X32.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\MSWNG300.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\odbcjt32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\odbcji32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\ODBCTL32.DLL=$(WinSysPathSysFile)
+C:\Program Files (x86)\Common Files\DESIGNER\MSDERUN.DLL=$(CommonFiles)\designer
+C:\Windows\SysWOW64\MSDBRPTR.DLL=$(WinSysPath)
+C:\Windows\SysWOW64\COMCT232.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\COMCTL32.OCX=$(WinSysPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\Windows\System32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|new Package 2|Configure Shared Files]
+Applicable=Yes
+E:\MIN PROJECT\MINE.exe=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+
+[Package|new Package 2|Distribution]
+Type=single
+Size=1.44 MB
+Title=accounts
+
+[Package|new Package 2|IconGroups]
+Group0=$(Programs)
+PrivateGroup0=True
+Parent0=
+
+[Package|new Package 2|$(Programs)]
+Icon1=MINE.exe
+Title1=Icon2
+StartIn1=$(AppPath)
+Key1=Icon2
+Icon2=MINE.exe
+Title2=Icon3
+StartIn2=$(AppPath)
+Key2=Icon3
+
+[Package|new Package 2|Package]
+PackageFolder=d:\
+ProjectFolder=E:\MIN PROJECT
+ServerSideCab=
+File1=d:\setup.exe
+File2=d:\Setup.Lst
+File3=d:\MINE.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

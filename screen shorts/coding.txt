@@ -1,0 +1,1027 @@
+                                   1.LOGIN
+                                 *************
+
+Dim user As String
+Dim pass As String
+
+Private Sub CMDCANCEL_Click()
+End
+
+End Sub
+
+Private Sub CMDOK_Click()
+
+user = "venkat"
+pass = "vsv"
+If tbusername.Text = user Then
+ If tbpassword.Text = pass Then
+Unload Me
+ 
+ Form2.Enabled = True
+ Form2.Show
+ ElseIf tbpassword.Text = "" Then
+ MsgBox "password field empty", vbExclamation, "login"
+ 
+Else
+MsgBox "username and password not matched", vbExclamation, "login"
+End If
+ElseIf tbusername.Text = "" Then
+MsgBox "username field empty", vbExclamation, "login"
+Else
+MsgBox "invalied username,try again", , "login"
+tbpassword.SetFocus
+End If
+End Sub
+
+
+Private Sub Form_Load()
+
+Form1.BackColor = RGB(250, 240, 1)
+Frame1.BackColor = RGB(1, 0, 112)
+labuname.BackColor = RGB(58, 7, 248)
+Lapwd.BackColor = RGB(58, 71, 248)
+tbpassword.BackColor = RGB(248, 248, 248)
+tbusername.BackColor = RGB(248, 248, 248)
+labuname.Visible = False
+Lapwd.Visible = False
+tbpassword.Visible = False
+tbusername.Visible = False
+
+Timer1.Enabled = True
+
+End Sub
+
+
+Private Sub Picture10_Click()
+
+End Sub
+
+Private Sub Picture4_Click()
+
+End Sub
+
+Private Sub Timer1_Timer()
+ ProgressBar1.Value = ProgressBar1.Value + 5
+
+If (ProgressBar1.Value = ProgressBar1.Max) Then
+Timer1.Enabled = False
+labuname.Visible = True
+Lapwd.Visible = True
+tbpassword.Visible = True
+tbusername.Visible = True
+ProgressBar1.Visible = False
+
+End If
+End Sub
+
+
+
+                        FORM : 2 (CALCULATION)
+                      **************************************
+Dim con As New ADODB.Connection
+Dim rs As New ADODB.Recordset
+Dim k As Integer
+Dim j As Integer
+
+
+Private Sub Calendar1_Click()
+txtdate = Calendar1.Value
+
+End Sub
+
+Private Sub Cmdclose_Click()
+End
+End Sub
+
+Private Sub cmdfirst_Click()
+rs.MoveFirst
+
+End Sub
+
+Private Sub cmddelete_Click()
+con.Execute "Select * from ventab where eno=" & txtdate & ""
+rs.Delete
+
+End Sub
+
+
+
+Private Sub cmdedit_Click()
+txtdate.SetFocus
+txtdate = flex1.TextMatrix(flex1.RowSel, 0)
+txteno = flex1.TextMatrix(flex1.RowSel, 1)
+Combo1.Text = flex1.TextMatrix(flex1.RowSel, 2)
+txt2000.Text = flex1.TextMatrix(flex1.RowSel, 3)
+txt1000.Text = flex1.TextMatrix(flex1.RowSel, 4)
+txt500.Text = flex1.TextMatrix(flex1.RowSel, 5)
+txt100.Text = flex1.TextMatrix(flex1.RowSel, 6)
+txt50.Text = flex1.TextMatrix(flex1.RowSel, 7)
+txt20.Text = flex1.TextMatrix(flex1.RowSel, 8)
+txt10.Text = flex1.TextMatrix(flex1.RowSel, 9)
+txt5.Text = flex1.TextMatrix(flex1.RowSel, 10)
+txtcoins.Text = flex1.TextMatrix(flex1.RowSel, 11)
+txttot.Text = flex1.TextMatrix(flex1.RowSel, 12)
+End Sub
+
+Private Sub cmdnew_Click()
+MsgBox "Enter Data"
+'Combo1.Text = " "
+txteno.Text = " "
+txt2000.Text = " "
+txt1000.Text = " "
+txt500.Text = " "
+txt100.Text = " "
+txt50.Text = " "
+txt20.Text = " "
+txt10.Text = " "
+txt5.Text = " "
+txtcoins.Text = " "
+txtdate.SetFocus
+rs.AddNew
+
+End Sub
+
+
+
+Private Sub cmdnext_Click()
+Form3.Show
+Form3.Calendar1.Value = Form2.Calendar1
+Form3.Calendar2.Value = Form2.Calendar1
+
+End Sub
+
+Private Sub cmdsearch_Click()
+Form3.Show
+Form3.cmdboth.Visible = False
+Form3.cmdcbank.Visible = False
+Form3.cmdchand.Visible = False
+
+
+End Sub
+
+
+Private Sub cmdupdate_Click()
+rs.Fields(0) = txtdate.Text
+rs.Fields(2) = Combo1.Text
+rs.Fields(1) = txteno.Text
+rs.Fields(3) = txt2000.Text
+rs.Fields(4) = txt1000.Text
+rs.Fields(5) = txt500.Text
+rs.Fields(6) = txt100.Text
+rs.Fields(7) = txt50.Text
+rs.Fields(8) = txt20.Text
+rs.Fields(9) = txt10.Text
+rs.Fields(10) = txt5.Text
+rs.Fields(11) = txtcoins.Text
+rs.Fields(12) = txttot
+
+rs.Update
+
+MsgBox "Record is Saved"
+Call display
+End Sub
+
+
+
+Private Sub Combo1_Click()
+
+Select Case Combo1.Text
+Case "T.Karthik"
+txteno.Text = 101
+Case "E.Saravanan"
+txteno.Text = 102
+Case "A.Peter"
+txteno.Text = 103
+Case "A.Venkatesh"
+txteno.Text = 104
+Case "Petycash"
+txteno.Text = 105
+Case "Other 1"
+txteno.Text = 106
+Case "Other 2"
+txteno.Text = 107
+Case "Other 3"
+txteno.Text = 108
+
+
+End Select
+
+End Sub
+
+
+Private Sub Form_Load()
+con.Open "Provider=Microsoft.Jet.OLEDB.4.0;Data Source= " _
+   & App.Path & "\vendata.mdb;Persist Security Info=False"
+rs.Open "Select * from ventab ", con, adOpenDynamic, adLockOptimistic
+If rs.BOF = True Then
+rs.MoveFirst
+MsgBox ("no record found")
+
+Else
+Call display
+End If
+
+Call calculate
+
+
+
+Combo1.AddItem "T.Karthik"
+Combo1.AddItem "A.Peter"
+Combo1.AddItem "E.Saravanan"
+Combo1.AddItem "A.Venkatesh"
+Combo1.AddItem "Petycash"
+Combo1.AddItem "Other 1"
+Combo1.AddItem "Other 2"
+Combo1.AddItem "Other 3"
+End Sub
+Private Sub calculate()
+Dim i As Integer
+Dim no1 As Integer
+Dim no As Integer
+i = 1
+no = flex1.Rows
+no1 = 0
+While (i < no)
+no1 = no1 + Val(flex1.TextMatrix(i, 3))
+i = i + 1
+Wend
+End Sub
+Private Sub display()
+
+k = 0
+
+flex1.Cols = 13
+flex1.Rows = 1
+flex1.Row = k
+flex1.Col = 0
+
+flex1.Text = "DATE"
+flex1.Col = 1
+flex1.Text = "ENO"
+flex1.Col = 2
+flex1.Text = "NAME"
+flex1.Col = 3
+flex1.Text = "2000"
+flex1.Col = 4
+flex1.Text = "1000"
+flex1.Col = 5
+flex1.Text = "500"
+flex1.Col = 6
+flex1.Text = "100"
+flex1.Col = 7
+flex1.Text = "50"
+flex1.Col = 8
+flex1.Text = "20"
+flex1.Col = 9
+flex1.Text = "10"
+flex1.Col = 10
+flex1.Text = "5"
+flex1.Col = 11
+flex1.Text = "COINS"
+flex1.Col = 12
+flex1.Text = "TOTAL"
+
+j = 0
+k = k + 1
+rs.MoveFirst
+While rs.EOF <> True
+flex1.Rows = flex1.Rows + 1
+
+
+
+
+flex1.Row = flex1.Row + 1
+flex1.Col = j
+flex1.Text = rs.Fields(0)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(1)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(2)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(3)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(4)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(5)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(6)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(7)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(8)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(9)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(10)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(11)
+flex1.Col = flex1.Col + 1
+flex1.Text = rs.Fields(12)
+k = k + 1
+rs.MoveNext
+
+Wend
+
+
+
+End Sub
+
+Private Sub txt10_Change()
+txttot.Text = Val(txt2000) * 2000 + Val(txt1000) * 1000 + Val(txt500) * 500 + Val(txt100) * 100 + Val(txt50) * 50 + Val(txt20) * 20 + Val(txt10) * 10 + Val(txt5) * 5 + Val(txtcoins) * 1
+
+End Sub
+
+Private Sub txt100_Change()
+txttot.Text = Val(txt2000) * 2000 + Val(txt1000) * 1000 + Val(txt500) * 500 + Val(txt100) * 100 + Val(txt50) * 50 + Val(txt20) * 20 + Val(txt10) * 10 + Val(txt5) * 5 + Val(txtcoins) * 1
+
+End Sub
+
+Private Sub txt1000_Change()
+txttot.Text = Val(txt2000) * 2000 + Val(txt1000) * 1000 + Val(txt500) * 500 + Val(txt100) * 100 + Val(txt50) * 50 + Val(txt20) * 20 + Val(txt10) * 10 + Val(txt5) * 5 + Val(txtcoins) * 1
+
+End Sub
+
+Private Sub txt20_Change()
+txttot.Text = Val(txt2000) * 2000 + Val(txt1000) * 1000 + Val(txt500) * 500 + Val(txt100) * 100 + Val(txt50) * 50 + Val(txt20) * 20 + Val(txt10) * 10 + Val(txt5) * 5 + Val(txtcoins) * 1
+
+End Sub
+
+Private Sub txt2000_Change()
+txttot.Text = Val(txt2000) * 2000 + Val(txt1000) * 1000 + Val(txt500) * 500 + Val(txt100) * 100 + Val(txt50) * 50 + Val(txt20) * 20 + Val(txt10) * 10 + Val(txt5) * 5 + Val(txtcoins) * 1
+
+End Sub
+
+Private Sub txt5_Change()
+txttot.Text = Val(txt2000) * 2000 + Val(txt1000) * 1000 + Val(txt500) * 500 + Val(txt100) * 100 + Val(txt50) * 50 + Val(txt20) * 20 + Val(txt10) * 10 + Val(txt5) * 5 + Val(txtcoins) * 1
+
+End Sub
+
+Private Sub txt50_Change()
+txttot.Text = Val(txt2000) * 2000 + Val(txt1000) * 1000 + Val(txt500) * 500 + Val(txt100) * 100 + Val(txt50) * 50 + Val(txt20) * 20 + Val(txt10) * 10 + Val(txt5) * 5 + Val(txtcoins) * 1
+
+End Sub
+
+Private Sub txt500_Change()
+txttot.Text = Val(txt2000) * 2000 + Val(txt1000) * 1000 + Val(txt500) * 500 + Val(txt100) * 100 + Val(txt50) * 50 + Val(txt20) * 20 + Val(txt10) * 10 + Val(txt5) * 5 + Val(txtcoins) * 1
+
+End Sub
+
+Private Sub txtcoins_Change()
+txttot.Text = Val(txt2000) * 2000 + Val(txt1000) * 1000 + Val(txt500) * 500 + Val(txt100) * 100 + Val(txt50) * 50 + Val(txt20) * 20 + Val(txt10) * 10 + Val(txt5) * 5 + Val(txtcoins) * 1
+
+End Sub
+
+
+                                 FORM : 3 (TOTAL CALCULATION & SEARCHING)
+                                 *************************************************************
+
+Dim con As New ADODB.Connection
+Dim rs1 As New ADODB.Recordset
+Dim rs2 As New ADODB.Recordset
+Dim D1 As Date
+Dim d2 As Date
+Dim k As Integer
+Dim j As Integer
+
+
+Private Sub Calendar1_Click()
+txtfrom = Calendar1.Value
+End Sub
+
+Private Sub Calendar2_Click()
+txtto = Calendar2.Value
+End Sub
+
+Private Sub cmdback_Click()
+Form2.Show
+End Sub
+
+Private Sub cmdboth_Click()
+Form4.Show
+Call chand
+Call cbank
+
+Form4.labchand.Visible = True
+Form4.dtxt50.Visible = True
+Form4.dtxt20.Visible = True
+Form4.dtxt10.Visible = True
+Form4.dtxt5.Visible = True
+Form4.dtxtcoins.Visible = True
+Form4.dtxth500.Visible = True
+Form4.dtxth100.Visible = True
+
+
+Form4.Label2.Visible = True
+Form4.totchand.Visible = True
+
+Form4.Labcbank.Visible = True
+Form4.dtxt2000.Visible = True
+Form4.dtxt1000.Visible = True
+Form4.dtxt500.Visible = True
+Form4.dtxt100.Visible = True
+Form4.dtxtb50.Visible = True
+Form4.dtxtb20.Visible = True
+Form4.dtxtb10.Visible = True
+Form4.Label1.Visible = True
+Form4.totcbank.Visible = True
+
+
+
+
+End Sub
+
+Private Sub cbank()
+Dim A, A1, B, B1, C, C1, D, D1 As Integer
+
+Form4.Show
+Form4.labchand.Visible = False
+Form4.dtxt50.Visible = False
+Form4.dtxt20.Visible = False
+Form4.dtxt10.Visible = False
+Form4.dtxt5.Visible = False
+Form4.dtxtcoins.Visible = False
+Form4.dtxth500.Visible = False
+Form4.dtxth100.Visible = False
+
+
+Form4.Label2.Visible = False
+Form4.totchand.Visible = False
+
+
+A = Txtto2000.Text
+A1 = A * 2000
+B = txtto1000.Text
+B1 = B * 1000
+C = txtto500.Text
+C1 = C * 500
+D = txtto100.Text
+D1 = D * 100
+
+Form4.dtxt2000.Text = " 2000      " & " *     " & A & "    =       " & A1 & ""
+Form4.dtxt1000.Text = " 1000      " & " *     " & B & "    =       " & B1 & ""
+ Form4.dtxt500.Text = "  500      " & "  *     " & C & "    =       " & C1 & ""
+ Form4.dtxt100.Text = "  100      " & "  *     " & D & "    =       " & D1 & ""
+
+Form4.totcbank.Text = "      " & Val(A1) + Val(B1) + Val(C1) + Val(D1)
+
+End Sub
+Private Sub chand()
+Dim A, A1, B, B1, C, C1, D, D1, E, E1 As Integer
+
+Form4.Show
+Form4.Labcbank.Visible = False
+Form4.dtxt2000.Visible = False
+Form4.dtxt1000.Visible = False
+Form4.dtxt500.Visible = False
+Form4.dtxt100.Visible = False
+Form4.dtxtb50.Visible = False
+Form4.dtxtb20.Visible = False
+Form4.dtxtb10.Visible = False
+Form4.Label1.Visible = False
+Form4.totcbank.Visible = False
+
+
+A = txtto50.Text
+A1 = A * 50
+B = txtto20.Text
+B1 = B * 20
+C = txtto10.Text
+C1 = C * 10
+D = txtto5.Text
+D1 = D * 5
+E = txttocoins.Text
+E1 = E * 1
+
+    Form4.dtxt50.Text = " 50       " & "*     " & A & "      =        " & A1 & ""
+    Form4.dtxt20.Text = " 20       " & "*     " & B & "      =        " & B1 & ""
+    Form4.dtxt10.Text = " 10       " & "*     " & C & "      =        " & C1 & ""
+     Form4.dtxt5.Text = "  5        " & "*     " & D & "      =        " & D1 & ""
+Form4.dtxtcoins.Text = "coins    " & "*     " & E & "      =        " & E1 & ""
+
+Form4.totchand.Text = "      " & Val(A1) + Val(B1) + Val(C1) + Val(D1) + Val(E1)
+
+
+End Sub
+
+Private Sub cmdcbank_Click()
+Call cbank
+
+End Sub
+
+Private Sub cmdchand_Click()
+Call chand
+End Sub
+
+Private Sub cmdfind_Click()
+D1 = Format(Calendar1.Value, "dd/mm/YYYY")
+d2 = Format(Calendar2.Value, "dd/mm/YYYY")
+
+
+MsgBox (D1)
+
+MsgBox (d2)
+Call display
+End Sub
+
+Private Sub Form_Load()
+con.Open "Provider=Microsoft.Jet.OLEDB.4.0;Data Source= " _
+   & App.Path & "\vendata.mdb;Persist Security Info=False"
+rs1.Open "Select * from ventab ", con, adOpenDynamic, adLockOptimistic
+rs1.MoveFirst
+If rs1.BOF = True Then
+MsgBox ("no record found")
+Else
+
+'Call display
+End If
+
+Call calculate2000
+Call calculate1000
+Call calculate500
+Call calculate100
+Call calculate50
+Call calculate20
+Call calculate10
+Call calculate5
+Call calculatecoins
+Call calculateftotal
+
+Combo2.AddItem "T.Karthik"
+Combo2.AddItem "A.Peter"
+Combo2.AddItem "E.Saravanan"
+Combo2.AddItem "A.Venkatesh"
+Combo2.AddItem "Petycash"
+Combo2.AddItem "Other 1"
+Combo2.AddItem "Other 2"
+Combo2.AddItem "Other 3"
+'End If
+End Sub
+
+Private Sub calculate2000()
+Dim i As Integer
+Dim no1 As Integer
+Dim no As Integer
+i = 1
+no = flex2.Rows
+no1 = 0
+While (i < no)
+no1 = no1 + Val(flex2.TextMatrix(i, 3))
+i = i + 1
+Wend
+
+Txtto2000.Text = Str(no1)
+End Sub
+Private Sub calculate1000()
+Dim i As Integer
+Dim no1 As Integer
+Dim no As Integer
+i = 1
+no = flex2.Rows
+no1 = 0
+While (i < no)
+no1 = no1 + Val(flex2.TextMatrix(i, 4))
+i = i + 1
+Wend
+
+txtto1000.Text = Str(no1)
+End Sub
+
+Private Sub calculate500()
+Dim i As Integer
+Dim no1 As Integer
+Dim no As Integer
+i = 1
+no = flex2.Rows
+no1 = 0
+While (i < no)
+no1 = no1 + Val(flex2.TextMatrix(i, 5))
+i = i + 1
+Wend
+
+txtto500.Text = Str(no1)
+End Sub
+Private Sub calculate100()
+Dim i As Integer
+Dim no1 As Integer
+Dim no As Integer
+i = 1
+no = flex2.Rows
+no1 = 0
+While (i < no)
+no1 = no1 + Val(flex2.TextMatrix(i, 6))
+i = i + 1
+Wend
+
+txtto100.Text = Str(no1)
+End Sub
+Private Sub calculate50()
+Dim i As Integer
+Dim no1 As Integer
+Dim no As Integer
+i = 1
+no = flex2.Rows
+no1 = 0
+While (i < no)
+no1 = no1 + Val(flex2.TextMatrix(i, 7))
+i = i + 1
+Wend
+
+txtto50.Text = Str(no1)
+End Sub
+Private Sub calculate20()
+Dim i As Integer
+Dim no1 As Integer
+Dim no As Integer
+i = 1
+no = flex2.Rows
+no1 = 0
+While (i < no)
+no1 = no1 + Val(flex2.TextMatrix(i, 8))
+i = i + 1
+Wend
+
+txtto20.Text = Str(no1)
+End Sub
+Private Sub calculate10()
+Dim i As Integer
+Dim no1 As Integer
+Dim no As Integer
+i = 1
+no = flex2.Rows
+no1 = 0
+While (i < no)
+no1 = no1 + Val(flex2.TextMatrix(i, 9))
+i = i + 1
+Wend
+
+txtto10.Text = Str(no1)
+End Sub
+Private Sub calculate5()
+Dim i As Integer
+Dim no1 As Integer
+Dim no As Integer
+i = 1
+no = flex2.Rows
+no1 = 0
+While (i < no)
+no1 = no1 + Val(flex2.TextMatrix(i, 10))
+i = i + 1
+Wend
+
+txtto5.Text = Str(no1)
+End Sub
+Private Sub calculatecoins()
+Dim i As Integer
+Dim no1 As Integer
+Dim no As Integer
+i = 1
+no = flex2.Rows
+no1 = 0
+While (i < no)
+no1 = no1 + Val(flex2.TextMatrix(i, 11))
+i = i + 1
+Wend
+
+txttocoins.Text = Str(no1)
+End Sub
+Private Sub calculateftotal()
+Dim i As Integer
+Dim no1 As Long
+Dim no As Long
+i = 1
+no = flex2.Rows
+no1 = 0
+While (i < no)
+no1 = no1 + Val(flex2.TextMatrix(i, 12))
+i = i + 1
+Wend
+
+txttoto.Text = Str(no1)
+End Sub
+
+Private Sub display()
+k = 0
+
+flex2.Cols = 13
+flex2.Rows = 1
+flex2.Row = k
+flex2.Col = 0
+
+flex2.Text = "DATE"
+flex2.Col = 1
+flex2.Text = "ENO"
+flex2.Col = 2
+flex2.Text = "NAME"
+flex2.Col = 3
+flex2.Text = "2000"
+flex2.Col = 4
+flex2.Text = "1000"
+flex2.Col = 5
+flex2.Text = "500"
+flex2.Col = 6
+flex2.Text = "100"
+flex2.Col = 7
+flex2.Text = "50"
+flex2.Col = 8
+flex2.Text = "20"
+flex2.Col = 9
+flex2.Text = "10"
+flex2.Col = 10
+flex2.Text = "5"
+flex2.Col = 11
+flex2.Text = "COINS"
+flex2.Col = 12
+flex2.Text = "TOTAL"
+
+j = 0
+k = k + 1
+Dim da1, da2, mo1, mo2, ye1, ye2 As Integer
+da1 = Day(D1)
+mo1 = Month(D1)
+ye1 = Year(D1)
+da2 = Day(d2)
+mo2 = Month(d2)
+ye2 = Year(d2)
+
+rs2.Open "Select * from ventab where day(date) >=" & da1 _
+                                    & " and day(date) <=" & da2 _
+                                    & " and month(date) >=" & mo1 _
+                                    & " and month(date) <=" & mo2 _
+                                    & " and year(date) >=" & ye1 _
+                                    & " and year(date) <=" & ye2 _
+                                    , con, adOpenDynamic, adLockOptimistic
+
+
+While rs2.EOF <> True
+
+flex2.Rows = flex2.Rows + 1
+flex2.Row = flex2.Row + 1
+flex2.Col = j
+
+flex2.Text = rs2.Fields(0)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(1)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(2)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(3)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(4)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(5)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(6)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(7)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(8)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(9)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(10)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(11)
+flex2.Col = flex2.Col + 1
+flex2.Text = rs2.Fields(12)
+k = k + 1
+rs2.MoveNext
+
+Wend
+
+Call calculate2000
+Call calculate1000
+Call calculate500
+Call calculate100
+Call calculate50
+Call calculate20
+Call calculate10
+Call calculate5
+Call calculatecoins
+Call calculateftotal
+
+
+
+rs2.Close
+End Sub
+
+
+                                                  FORM 4 : (CASH FLOW)
+                                                 *******************************
+Dim con As New ADODB.Connection
+Dim rs1 As New ADODB.Recordset
+Dim rs2 As New ADODB.Recordset
+
+
+Dim D1 As Date
+Dim d2 As Date
+Dim k As Integer
+Dim j As Integer
+
+
+Private Sub cmdbackc_Click()
+Form3.Show
+
+End Sub
+
+Private Sub cmdbackh_Click()
+Form3.Show
+
+End Sub
+
+Private Sub cmdprint_Click()
+Form5.Text1 = Form3.Calendar1.Value
+
+
+
+Form5.Txtto2000.Text = Form3.Txtto2000
+Form5.txtto1000.Text = Form3.txtto1000
+Form5.txtto500.Text = Form3.txtto500
+Form5.txtto100.Text = Form3.txtto100
+Form5.txtto50.Text = Form3.txtto50
+Form5.txtto20.Text = Form3.txtto20
+Form5.txtto10.Text = Form3.txtto10
+Form5.txtto5.Text = Form3.txtto5
+Form5.txttocoins.Text = Form3.txttocoins
+Form5.txttoto.Text = Form3.txttoto
+
+Form5.dtxt2000.Text = Form4.dtxt2000
+Form5.dtxt1000.Text = Form4.dtxt1000
+Form5.dtxt500.Text = Form4.dtxt500
+Form5.dtxt100.Text = Form4.dtxt100
+Form5.dtxt50.Text = Form4.dtxt50
+Form5.dtxt20.Text = Form4.dtxt20
+Form5.dtxt10.Text = Form4.dtxt10
+Form5.dtxt5.Text = Form4.dtxt5
+Form5.dtxtcoins.Text = Form4.dtxtcoins
+Form5.dtxtb10.Text = Form4.dtxtb10
+Form5.dtxtb20.Text = Form4.dtxtb20
+Form5.dtxtb50.Text = Form4.dtxtb50
+Form5.dtxth100.Text = Form4.dtxth100
+Form5.dtxth500.Text = Form4.dtxth500
+Form5.totcbank.Text = Form4.totcbank
+Form5.totchand.Text = Form4.totchand
+
+
+
+
+m = 0
+Form5.flex3.Cols = Form3.flex2.Cols
+Form5.flex3.Rows = Form3.flex2.Rows
+ 
+ For m = 0 To Form3.flex2.Rows - 1
+ 
+ 
+ 
+Form5.flex3.TextMatrix(m, 0) = Form3.flex2.TextMatrix(o, 0)
+Form5.flex3.TextMatrix(m, 1) = Form3.flex2.TextMatrix(o, 1)
+Form5.flex3.TextMatrix(m, 2) = Form3.flex2.TextMatrix(o, 2)
+Form5.flex3.TextMatrix(m, 3) = Form3.flex2.TextMatrix(o, 3)
+Form5.flex3.TextMatrix(m, 4) = Form3.flex2.TextMatrix(o, 4)
+Form5.flex3.TextMatrix(m, 5) = Form3.flex2.TextMatrix(o, 5)
+Form5.flex3.TextMatrix(m, 6) = Form3.flex2.TextMatrix(o, 6)
+Form5.flex3.TextMatrix(m, 7) = Form3.flex2.TextMatrix(o, 7)
+Form5.flex3.TextMatrix(m, 8) = Form3.flex2.TextMatrix(o, 8)
+Form5.flex3.TextMatrix(m, 9) = Form3.flex2.TextMatrix(o, 9)
+Form5.flex3.TextMatrix(m, 10) = Form3.flex2.TextMatrix(o, 10)
+Form5.flex3.TextMatrix(m, 11) = Form3.flex2.TextMatrix(o, 11)
+Form5.flex3.TextMatrix(m, 12) = Form3.flex2.TextMatrix(o, 12)
+o = o + 1
+Next
+
+
+
+
+
+End Sub
+
+
+Private Sub cmdreport_Click()
+DataReport1.Show
+
+Form5.dtxt2000.Text = Form4.dtxt2000
+Form5.dtxt1000.Text = Form4.dtxt1000
+Form5.dtxt500.Text = Form4.dtxt500
+Form5.dtxt100.Text = Form4.dtxt100
+Form5.dtxtb50.Text = Form4.dtxtb50
+Form5.dtxtb20.Text = Form4.dtxtb20
+Form5.dtxtb10.Text = Form4.dtxtb10
+Form5.totcbank.Text = Form4.totcbank
+
+
+Form5.dtxt50.Text = Form4.dtxt50
+Form5.dtxt20.Text = Form4.dtxt20
+Form5.dtxt10.Text = Form4.dtxt10
+Form5.dtxt5.Text = Form4.dtxt5
+Form5.dtxtcoins.Text = Form4.dtxtcoins
+Form5.dtxth500.Text = Form4.dtxth500
+Form5.dtxth100.Text = Form4.dtxth100
+Form5.totchand.Text = Form4.totchand
+
+Form5.Txtto2000.Text = Form3.Txtto2000
+Form5.txtto1000.Text = Form3.txtto1000
+Form5.txtto500.Text = Form3.txtto500
+Form5.txtto100.Text = Form3.txtto100
+Form5.txtto50.Text = Form3.txtto50
+Form5.txtto20.Text = Form3.txtto20
+Form5.txtto10.Text = Form3.txtto10
+Form5.txtto5.Text = Form3.txtto5
+Form5.txttocoins.Text = Form3.txttocoins
+Form5.txttoto.Text = Form3.txttoto
+
+
+
+
+Form5.Show
+
+
+
+'Call display
+
+End Sub
+Private Sub display()
+k = 0
+
+Form5.flex3.Cols = 13
+Form5.flex3.Rows = 1
+Form5.flex3.Row = k
+Form5.flex3.Col = 0
+
+Form5.flex3.Text = "DATE"
+Form5.flex3.Col = 1
+Form5.flex3.Text = "ENO"
+Form5.flex3.Col = 2
+Form5.flex3.Text = "NAME"
+Form5.flex3.Col = 3
+Form5.flex3.Text = "2000"
+Form5.flex3.Col = 4
+Form5.flex3.Text = "1000"
+Form5.flex3.Col = 5
+Form5.flex3.Text = "500"
+Form5.flex3.Col = 6
+Form5.flex3.Text = "100"
+Form5.flex3.Col = 7
+Form5.flex3.Text = "50"
+Form5.flex3.Col = 8
+Form5.flex3.Text = "20"
+Form5.flex3.Col = 9
+Form5.flex3.Text = "10"
+Form5.flex3.Col = 10
+Form5.flex3.Text = "5"
+Form5.flex3.Col = 11
+Form5.flex3.Text = "COINS"
+Form5.flex3.Col = 12
+Form5.flex3.Text = "TOTAL"
+
+j = 0
+k = k + 1
+
+While rs2.EOF <> True
+
+flex3.Rows = flex3.Rows + 1
+flex3.Row = flex3.Row + 1
+flex3.Col = j
+
+flex3.Text = rs2.Fields(0)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(1)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(2)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(3)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(4)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(5)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(6)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(7)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(8)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(9)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(10)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(11)
+flex3.Col = flex3.Col + 1
+flex3.Text = rs2.Fields(12)
+k = k + 1
+rs2.MoveNext
+
+Wend
+rs2.Close
+End Sub
+
+
+
+Private Sub Form_Load()
+
+End Sub
+
+
+                                                           FORM 5 : REPORT
+                                                          ************************
+
+
+                                        RE
